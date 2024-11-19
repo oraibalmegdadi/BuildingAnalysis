@@ -1,0 +1,50 @@
+Facade Statistics of Untitled2.jpg, Location: Unknown
+=================
+Using Expanded Region:
+- Area of Expanded Region (excluding windows): 18612.90 pixels
+- Total Window Area: 7290.60 pixels
+- Window Coverage Percentage: 28.15%
+- Vertices of Expanded Region: [[143, 222], [143, 223], [142, 224], [142, 226], [141, 227], [141, 229], [140, 230], [140, 232], [139, 233], [139, 236], [138, 237], [138, 239], [137, 240], [137, 242], [136, 243], [136, 245], [135, 246], [135, 248], [134, 249], [134, 251], [133, 252], [133, 254], [132, 255], [132, 257], [131, 258], [131, 261], [130, 262], [130, 264], [129, 265], [129, 267], [128, 268], [128, 270], [127, 271], [127, 273], [126, 274], [126, 276], [125, 277], [125, 279], [124, 280], [124, 283], [123, 284], [123, 286], [122, 287], [122, 289], [121, 290], [121, 292], [120, 293], [120, 295], [119, 296], [119, 298], [118, 299], [118, 301], [117, 302], [117, 304], [116, 305], [116, 308], [115, 309], [115, 311], [114, 312], [114, 314], [113, 315], [113, 317], [112, 318], [112, 320], [111, 321], [111, 323], [110, 324], [110, 326], [109, 327], [109, 329], [108, 330], [108, 333], [107, 334], [107, 336], [106, 337], [106, 339], [105, 340], [105, 342], [104, 343], [104, 345], [103, 346], [103, 348], [102, 349], [102, 351], [101, 352], [101, 355], [100, 356], [100, 358], [99, 359], [99, 361], [98, 362], [98, 364], [97, 365], [97, 385], [96, 386], [96, 416], [95, 417], [95, 418], [96, 419], [96, 423], [95, 424], [95, 480], [99, 480], [100, 481], [101, 481], [102, 480], [125, 480], [126, 479], [140, 479], [141, 478], [156, 478], [157, 477], [173, 477], [174, 476], [189, 476], [190, 475], [205, 475], [206, 474], [214, 474], [214, 456], [215, 455], [215, 444], [216, 443], [216, 442], [215, 441], [215, 418], [216, 417], [216, 362], [217, 361], [217, 274], [204, 261], [203, 261], [177, 235], [176, 235], [163, 222]]
+
+Using Rotated Bounding Box:
+- Area of Bounding Box (excluding windows): 24113.40 pixels
+- Total Window Area: 7290.60 pixels
+- Window Coverage Percentage: 23.22%
+- Vertices of Rotated Bounding Box: [[94, 480], [97, 221], [218, 222], [215, 482]]
+
+Window Statistics:
+- Average Window Width: 19.90 pixels
+- Average Window Height: 40.46 pixels
+- Window Width Std Dev: 1.88 pixels
+- Window Height Std Dev: 4.22 pixels
+
+Floor Estimation:
+- Estimated Number of Floors: 4
+- Average Floor Height: 34.88 pixels
+
+Detailed Floor Statistics:
+  Floor 1:
+    - Number of Windows: 2
+    - Average Width: 20.08 pixels
+    - Average Height: 43.15 pixels
+    - Average Distance Between Windows: 26.76 pixels
+    - Windows: [144.84, 235.76, 163.0, 276.34], [189.76, 282.84, 211.76, 328.55]
+  Floor 2:
+    - Number of Windows: 2
+    - Average Width: 20.60 pixels
+    - Average Height: 44.75 pixels
+    - Average Distance Between Windows: 25.98 pixels
+    - Windows: [144.26, 298.25, 162.54, 339.48], [188.52, 347.95, 211.44, 396.21]
+  Floor 3:
+    - Number of Windows: 3
+    - Average Width: 19.76 pixels
+    - Average Height: 39.54 pixels
+    - Average Distance Between Windows: 3.92 pixels
+    - Windows: [142.3, 363.33, 161.71, 401.04], [102.93, 367.01, 120.57, 407.45], [187.19, 424.81, 209.43, 465.28]
+  Floor 4:
+    - Number of Windows: 2
+    - Average Width: 19.24 pixels
+    - Average Height: 34.88 pixels
+    - Average Distance Between Windows: -59.55 pixels
+    - Windows: [141.02, 431.44, 160.9, 467.01], [101.35, 436.48, 119.95, 470.66]
+=================

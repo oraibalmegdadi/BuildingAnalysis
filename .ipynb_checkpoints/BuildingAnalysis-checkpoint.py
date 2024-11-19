@@ -1,20 +1,17 @@
 import os
 import sys
-import numpy as np
 from modules.resize_images import resize_images
 from modules.classify_images import classify_images
 from modules.detect_windows import detect_windows
-#from modules.generate_stats import generate_stats
-#from modules.annotate_images import annotate_images
+from modules.facade_estimation import FacadeEstimation  # Import FacadeEstimation class
 
 def main(input_folder):
     output_folder = "output"
     resized_folder = os.path.join(output_folder, "resized_images")
     classification_folder = os.path.join(output_folder, "classification_results")
     bounding_boxes_folder = os.path.join(output_folder, "bounding_boxes")
-  #  stats_folder = os.path.join(output_folder, "statistics")
-   # annotated_folder = os.path.join(output_folder, "annotated_images")
-    
+    facade_data_folder = os.path.join(output_folder, "facade_data")
+
     # Step 1: Resize images
     print("Resizing images...")
     resize_images(input_folder, resized_folder)
@@ -27,14 +24,12 @@ def main(input_folder):
     print("Detecting windows and extracting bounding boxes...")
     detect_windows(resized_folder, bounding_boxes_folder)
     
-    # Step 4: Generate statistics
-  #  print("Generating statistics...")
-    #generate_stats(resized_folder, stats_folder)
-    
-    # Step 5: Annotate images
- #   print("Annotating images...")
-    #annotate_images(resized_folder, bounding_boxes_folder, annotated_folder)
-    
+    # Step 4: Estimate Facade
+    print("Estimating facades...")
+    buffer_factor = 0.1  # Set buffer factor
+    facade_estimator = FacadeEstimation(buffer_factor=buffer_factor)  # Initialize the class
+    facade_estimator.process(resized_folder, bounding_boxes_folder, facade_data_folder)  # Process facades
+
     print(f"Pipeline complete! Output folder: {output_folder}")
 
 if __name__ == "__main__":
