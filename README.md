@@ -144,7 +144,53 @@ If your input folder is named input, run the pipeline like this:
 python BuildingAnalysis.py input
 ```
 
-This will process the images and locations in the input directory and output the results to the output folder. 
+** This project pipeline processes the images and location data provided in the input directory and saves the results in the output folder. this process include Image Resizing, image classification, Window Detection, Facade Estimation, Output Generation.  The output directory contains three main subfolders:**
+
+1. bounding_boxes folder:
+   * This folder includes a text file for each input image.
+   * Each file contains the bounding boxes for all detected windows within the image in the following format:
+```bash
+Class Confidence xmin ymin xmax ymax
+where:
+**Class:** The class of the detected object.
+**Confidence:** The detection confidence score.
+**xmin, ymin, xmax, ymax:** Coordinates of the bounding box for each window.
+
+```
+2. classification_results folder:
+ * A single text file summarizing the classification results for all input images.
+ * The file uses the following format:
+```bash
+Filename, Predicted_Class, Confidence
+Where:
+**Filename:** Name of the input image.
+**Predicted_Class:** The architectural class of the building (e.g., Century17and18 or After1950).
+**Confidence:** The confidence score for the predicted class.
+
+```
+
+Facade Data:
+
+For each input image, this folder contains:
+Statistics:
+Detailed facade detection parameters, including:
+Facade area.
+Number of floors.
+Number of windows.
+Window dimensions (average width, height, etc.).
+Window coverage percentage.
+The statistics are saved in both JSON and text formats.
+Visualizations:
+Annotated images that include:
+Detected windows (each floor represented with a unique color for clarity).
+The estimated facade area (outlined in magenta).
+The bounding box of the facade.
+
+
+
+
+
+
 
 ---
 
