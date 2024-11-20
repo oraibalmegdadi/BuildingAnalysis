@@ -41,7 +41,7 @@ cd BuildingAnalysis
 ```bash
 python -m venv <virtual enviroment name>   // ex: python -m venv Venv1
 ```
-6. Activate the Virtual Environment
+6. Activate the virtual environment (for future usage)
 ```bash
 Venv1\Scripts\activate
 ```
@@ -67,71 +67,41 @@ Press Ctrl + Alt + T or search for "Terminal" in your system applications.
 
 Use the cd command to navigate to the folder where you want to clone the repository. For example:
 
-bash
-Copy code
+```bash
 cd <Desired Directory>
+```
+
 3. Run the git clone Command:
-
 Clone the repository by running:
-
-bash
-Copy code
+```bash
 git clone https://github.com/oraibalmegdadi/BuildingAnalysis.git
+```
 
 4. Navigate to the Cloned Repository:
 
 Move into the cloned repository:
 
-bash
-Copy code
+```bash
 cd BuildingAnalysis
+```
 
 5. Create a virtual environment:
+```bash
+python3 -m venv <virtual enviroment name> //ex: python -m venv Venv1
+```
 
-bash
-Copy code
-python3 -m venv venv
 6. Then activate the virtual environment:
 
-bash
-Copy code
-source venv/bin/activate
+```bash
+source Venv1/bin/activate
+```
+
 7. Install Dependencies:
 
 Install the required Python libraries from the requirements.txt file:
-
-bash
-Copy code
+```bash
 pip install -r requirements.txt
-
-
-
-
-
-To get started, clone this repository to your local machine:
-
-```bash
-git clone https://github.com/oraibalmegdadi/BuildingAnalysis.git 
 ```
-
-
-#### Linux/MacOS
-Use the following command in the Terminal:
-
-```bash
-cd BuildingAnalysis
-```
-
-### Activate the Virtual Environment
-
-#### Windows
-
-Create a virtual environment:
-```bash
-python -m venv venv
-```
-
-#### 2. Linux/MacOS
 
 ---
 
