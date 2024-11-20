@@ -15,8 +15,7 @@ To get started, clone this repository to your local machine:
 ```bash
 git clone https://github.com/oraibalmegdadi/BuildingAnalysis.git 
 ```
-cd BuildingAnalysis
-
+Navigate to the BuildingAnalysis
 
 ### Activate the Virtual Environment
 
