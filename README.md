@@ -42,7 +42,7 @@ cd BuildingAnalysis
 python -m venv <virtual enviroment name>   // ex: python -m venv Venv1
 ```
 6. Activate the Virtual Environment
-   ```bash
+```bash
 Venv1\Scripts\activate
 ```
 
