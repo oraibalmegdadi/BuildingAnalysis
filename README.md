@@ -125,10 +125,26 @@ python BuildingAnalysis.py <input>
   * Building Images: Clear images of building facades where most windows and facade borders are visible.
   * Locations.txt (Optional): A file specifying the geographical location of each image.
 
-  
-Replace <input> with the directory containing your input images and the Locations.txt file.
-Images will be resized to 640*640 pixels automaticlly. for best reutls we creommend  the images to focus on a building facade where most of windows and the facade borders are clear. 
-location of each image is not mandotary. it could be added for more .... , the location represting each image could be included in  https://github.com/oraibalmegdadi/BuildingAnalysis/blob/main/input/Locations.txt   shuould be in the format: ImageName,Latitude,Longitude
+**Notes on Input**
+* Image Resizing:
+   * All images will be resized to 640x640 pixels automatically during processing.
+   * For the best results, ensure images focus on a building facade with most windows and the facade borders clearly visible.
+* Location File (Optional):
+    * The Locations.txt file is optional but can enhance output by providing geographical data for each image, If used, the file should follow this format:
+```bash
+ImageName,Latitude,Longitude
+1.jpg,38.71010,-9.13735
+2.jpg,38.71100,-9.13800
+```
+
+**Example:**
+If your input folder is named input, run the pipeline like this:
+
+```bash
+python BuildingAnalysis.py input
+```
+
+This will process the images and locations in the input directory and output the results to the output folder. 
 
 ---
 
