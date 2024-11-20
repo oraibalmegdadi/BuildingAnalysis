@@ -153,9 +153,9 @@ python BuildingAnalysis.py input
 Class Confidence xmin ymin xmax ymax
 ```
 **where:**
-**Class:** The class of the detected object.
-**Confidence:** The detection confidence score.
-**xmin, ymin, xmax, ymax:** Coordinates of the bounding box for each window.
+ - **Class:** The class of the detected object.
+ - **Confidence:** The detection confidence score.
+ - **xmin, ymin, xmax, ymax:** Coordinates of the bounding box for each window.
 
 
 2. classification_results folder:
@@ -166,9 +166,9 @@ Filename, Predicted_Class, Confidence
 ```
 
 **Where:**
-**Filename:** Name of the input image.
-**Predicted_Class:** The architectural class of the building (e.g., Century17and18 or After1950).
-**Confidence:** The confidence score for the predicted class.
+ - **Filename:** Name of the input image.
+ - **Predicted_Class:** The architectural class of the building (e.g., Century17and18 or After1950).
+ - **Confidence:** The confidence score for the predicted class.
 
 
 3. facade_data folder:
