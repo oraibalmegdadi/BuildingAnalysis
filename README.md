@@ -41,7 +41,7 @@ cd BuildingAnalysis
 ```bash
 python -m venv <virtual enviroment name>   // ex: python -m venv Venv1
 ```
-6. Activate the virtual environment (for future usage)
+6. Activate the virtual environment (also for future usage)
 ```bash
 Venv1\Scripts\activate
 ```
@@ -90,7 +90,7 @@ cd BuildingAnalysis
 python3 -m venv <virtual enviroment name> //ex: python -m venv Venv1
 ```
 
-6. Then activate the virtual environment:
+6. Activate the virtual environment (for future usage):
 
 ```bash
 source Venv1/bin/activate
