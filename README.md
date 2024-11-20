@@ -39,3 +39,7 @@ Activate the virtual environment:
 source venv/bin/activate
 
 ```
+
+## Output Example
+
+![Facade Visualization](https://github.com/oraibalmegdadi/BuildingAnalysis/blob/main/output/facade_data/Untitled3_visualization.png)
