@@ -151,54 +151,44 @@ python BuildingAnalysis.py input
    * Each file contains the bounding boxes for all detected windows within the image in the following format:
 ```bash
 Class Confidence xmin ymin xmax ymax
-where:
+```
+**where:**
 **Class:** The class of the detected object.
 **Confidence:** The detection confidence score.
 **xmin, ymin, xmax, ymax:** Coordinates of the bounding box for each window.
 
-```
+
 2. classification_results folder:
  * A single text file summarizing the classification results for all input images.
  * The file uses the following format:
 ```bash
 Filename, Predicted_Class, Confidence
-Where:
+```
+
+**Where:**
 **Filename:** Name of the input image.
 **Predicted_Class:** The architectural class of the building (e.g., Century17and18 or After1950).
 **Confidence:** The confidence score for the predicted class.
 
-```
 
-Facade Data:
+3. facade_data folder:
+ * For each input image, this folder contains:
+   1. Statistics:
+       * Detailed facade detection parameters, including Facade area, number of floors, number of windows. Window dimensions (average width, height, etc.), Window coverage percentage.
+       * The statistics are saved in both JSON and text formats.
 
-For each input image, this folder contains:
-Statistics:
-Detailed facade detection parameters, including:
-Facade area.
-Number of floors.
-Number of windows.
-Window dimensions (average width, height, etc.).
-Window coverage percentage.
-The statistics are saved in both JSON and text formats.
-Visualizations:
-Annotated images that include:
-Detected windows (each floor represented with a unique color for clarity).
-The estimated facade area (outlined in magenta).
-The bounding box of the facade.
-
-
-
-
-
-
+2. Visualizations:
+        * Annotated images that include:
+         1. Detected windows (each floor represented with a unique color for clarity).
+         2. The estimated facade area (outlined in magenta).
+         3. The bounding box of the facade.
 
 ---
 
 ## Output
 
 
-
-## Explanation of Output Visualization
+## Example of the Output 
 
 The image showcases the key steps in the **Building Analysis Pipeline**, as follows:
 ![Example Output](https://github.com/oraibalmegdadi/BuildingAnalysis/blob/main/output/facade_data/Untitled3_visualization.png)
