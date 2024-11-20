@@ -39,9 +39,13 @@ Activate the virtual environment:
 source venv/bin/activate
 
 ```
+## Output
+
 ### Explanation of Output Visualization
 
 The image showcases the key steps in the **Building Analysis Pipeline**, as follows:
+![Example Output](https://github.com/oraibalmegdadi/BuildingAnalysis/blob/main/output/facade_data/Untitled3_visualization.png)
+
 
 1. **Classification:**
    - The input building image is preprocessed and classified to identify whether it contains a facade suitable for analysis.
@@ -76,8 +80,3 @@ For more detailed output, including additional visualizations and structured dat
 
 [Detailed Outputs](https://github.com/oraibalmegdadi/BuildingAnalysis/tree/main/output)
 
---- 
-
-**Example Output Visualization:**
-
-![Example Output](https://github.com/oraibalmegdadi/BuildingAnalysis/blob/main/output/facade_data/Untitled3_visualization.png)
