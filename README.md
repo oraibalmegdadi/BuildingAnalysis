@@ -12,7 +12,6 @@ Ensure [Python](https://www.python.org/) is installed and properly configured on
 ### Clone the Repository
 #### 1. Windows
 
-
 1. Open CMD:
 
 - Press Win + R, type cmd, and press Enter.
@@ -38,8 +37,72 @@ Once the repository is cloned, navigate to it using:
 cd BuildingAnalysis
 ```
 
+5.  Create a virtual environment:
+```bash
+python -m venv <virtual enviroment name>   // ex: python -m venv Venv1
+```
+6. Activate the Virtual Environment
+   ```bash
+Venv1\Scripts\activate
+```
 
-#### Linux/MacOS
+
+
+7. Install Dependencies
+Install the required Python libraries from the requirements.txt file:
+
+```bash
+pip install -r requirements.txt
+```
+
+
+#### 2. Linux/MacOS
+
+
+1. Open Terminal:
+
+Press Ctrl + Alt + T or search for "Terminal" in your system applications.
+
+2. Navigate to the Desired Directory:
+
+Use the cd command to navigate to the folder where you want to clone the repository. For example:
+
+bash
+Copy code
+cd <Desired Directory>
+3. Run the git clone Command:
+
+Clone the repository by running:
+
+bash
+Copy code
+git clone https://github.com/oraibalmegdadi/BuildingAnalysis.git
+
+4. Navigate to the Cloned Repository:
+
+Move into the cloned repository:
+
+bash
+Copy code
+cd BuildingAnalysis
+
+5. Create a virtual environment:
+
+bash
+Copy code
+python3 -m venv venv
+6. Then activate the virtual environment:
+
+bash
+Copy code
+source venv/bin/activate
+7. Install Dependencies:
+
+Install the required Python libraries from the requirements.txt file:
+
+bash
+Copy code
+pip install -r requirements.txt
 
 
 
@@ -50,14 +113,7 @@ To get started, clone this repository to your local machine:
 ```bash
 git clone https://github.com/oraibalmegdadi/BuildingAnalysis.git 
 ```
-### Navigate to the BuildingAnalysis Directory
-#### Windows
 
-Use the following command in the Command Prompt (CMD):
-
-```bash
-cd BuildingAnalysis
-```
 
 #### Linux/MacOS
 Use the following command in the Terminal:
@@ -65,7 +121,6 @@ Use the following command in the Terminal:
 ```bash
 cd BuildingAnalysis
 ```
-
 
 ### Activate the Virtual Environment
 
@@ -76,24 +131,8 @@ Create a virtual environment:
 python -m venv venv
 ```
 
-#### Linux/MacOS
-Create a virtual environment:
+#### 2. Linux/MacOS
 
-```bash
-python3 -m venv venv
-```
-Activate the virtual environment:
-
-```bash
-source venv/bin/activate
-
-```
-### Install Dependencies
-Install the required Python libraries from the requirements.txt file:
-
-```bash
-pip install -r requirements.txt
-```
 ---
 
 ### Running the Code
