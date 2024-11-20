@@ -1,4 +1,5 @@
-# Building Analysis
+<?xml version='1.0' encoding='utf-8'?>
+<biblio><source Tag="1"><author>L. van Turha, K. Maharaj, A. Rose, C. Boeke, F. T. Peter, L. Vojnov, J. Quevedo and Y. Tsibolane</author><title>Point-of-care CD4+ technology implementation in</title><journalName>South African Medical Journal</journalName><year>2020</year><volume>110</volume><issue>2</issue><pages>126-131</pages></source><source Tag="2"><author>J. A. Schank and T. M. Skovholt</author><title>Ethical Practice in Small Communities: Challenges and rewards for psychologists</title><city>Washington</city><publisher>American Psychological Association</publisher><year>2002</year></source><source Tag="3"><author>I. Hay and M. Israel</author><title>Research Ethics for Social Scientists</title><city>Thousand Oaks, CA</city><publisher>Sage Publications</publisher><year>2006</year></source><source Tag="28"><author>G. D. Laein</author><title>Global perspectives on governing healthcare AI: prioritising safety, equity and collaboration</title><journalName>Leader</journalName><city>Mashhad, Razavi Khorasan, Iran</city><year>2023</year><institution>Mashhad University of Medical Sciences</institution></source><source Tag="29"><author>S. M. Williamson and V. Prybutok</author><title>Balancing Privacy and Progress: A Review of Privacy Challenges, Systemic Oversight, and Patient Perceptions in AI-Driven Healthcare</title><journalName>Applied Sciences</journalName><year>2024</year><volume>14</volume><issue>2</issue><pages>675</pages></source></biblio># Building Analysis
 
 ## Overview
 
@@ -8,9 +9,44 @@
 
 ## Installation and Setup
 ---
-Ensure **Python** (https://www.python.org/) is installed and properly configured on your device. This project was developed using Python 3.9.
+
+Ensure [Python] (https://www.python.org/) is installed and properly configured on your device. This project was developed using Python 3.9.
 
 ### Clone the Repository
+#### Windows
+
+
+1. Open CMD:
+
+- Press Win + R, type cmd, and press Enter.
+
+2. Navigate to the Desired Directory:
+
+
+Use the cd command to move to the folder where you want to clone the repository. For example:
+```bash
+cd  < Desired Directory > 
+```
+3. Run the git clone Command:
+Execute the git clone command to clone the repository:
+```bash
+
+git clone https://github.com/oraibalmegdadi/BuildingAnalysis.git
+```
+
+4. Navigate to the Cloned Repository:
+
+Once the repository is cloned, navigate to it using:
+```bash
+cd BuildingAnalysis
+```
+
+
+#### Linux/MacOS
+
+
+
+
 
 To get started, clone this repository to your local machine:
 
