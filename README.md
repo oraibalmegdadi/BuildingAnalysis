@@ -65,18 +65,13 @@ The image showcases the key steps in the **Building Analysis Pipeline**, as foll
    - This grouping is based on vertical alignment and distance-based calculations to estimate floor boundaries.
 
 5. **Statistics:**
-   - **Text Statistics:** A `.txt` file is generated containing detailed statistics, including:
+   - ** Statistics:** A `.txt` and A `.json` files are generated containing detailed statistics, including:
      - Total number of windows.
      - Average window dimensions.
      - Floor height.
      - Window coverage percentage.
      - Facade area.
-   - **JSON Statistics:** A `.json` file is also generated, providing structured data, including:
-     - Window coordinates.
-     - Facade dimensions.
-     - Floor-specific details.
-
-For more detailed output, including additional visualizations and structured data, visit the output directory:
+For more detailed output, including additional exmples, visualizations and structured datd, visit the output directory:
 
 [Detailed Outputs](https://github.com/oraibalmegdadi/BuildingAnalysis/tree/main/output)
 
