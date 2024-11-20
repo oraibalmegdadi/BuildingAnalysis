@@ -178,7 +178,7 @@ Filename, Predicted_Class, Confidence
        * The statistics are saved in both JSON and text formats.
 
 2. Visualizations:
-        * Annotated images that include:
+   * Annotated images that include:
          1. Detected windows (each floor represented with a unique color for clarity).
          2. The estimated facade area (outlined in magenta).
          3. The bounding box of the facade.
