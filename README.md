@@ -13,5 +13,29 @@
 To get started, clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/oraibalmegdadi/BuildingAnalysis.git
+git clone https://github.com/oraibalmegdadi/BuildingAnalysis.git 
+```
 cd BuildingAnalysis
+
+
+### Activate the Virtual Environment
+
+#### Windows
+
+Create a virtual environment:
+```bash
+python -m venv venv
+```
+
+#### Linux/MacOS
+Create a virtual environment:
+
+```bash
+python3 -m venv venv
+```
+Activate the virtual environment:
+
+```bash
+source venv/bin/activate
+
+```
