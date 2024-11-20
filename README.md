@@ -103,6 +103,14 @@ Install the required Python libraries from the requirements.txt file:
 pip install -r requirements.txt
 ```
 
+** Additional Notes for Linux/WSL Users**
+If you encounter an error related to libGL.so.1 when running the code, it means that OpenCV requires additional system libraries to function correctly. You can resolve this issue by installing the necessary library using the following command:
+
+```bash
+sudo apt update
+sudo apt install -y libgl1-mesa-glx
+```
+
 ---
 
 ### Running the Code
