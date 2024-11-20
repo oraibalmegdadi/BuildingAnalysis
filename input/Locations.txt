@@ -1,3 +1,2 @@
-ImagName,Latitude, Longitude
+ImageName,Latitude,Longitude
 1.jpg,38.71010,-9.13735
-

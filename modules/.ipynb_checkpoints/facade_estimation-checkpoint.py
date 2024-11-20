@@ -160,58 +160,71 @@ class FacadeEstimation:
         
         return avg_color
 
+    
+    
+    #def region_growing(buffered_hull, gabor_filtered_images, filter_densities, image, average_color, threshold=20):
+   # def region_growing(*, buffered_hull, gabor_filtered_images, filter_densities, image, average_color, image_height, min_y_threshold, max_y_threshold, threshold=20):
+    def region_growing(self, *, buffered_hull, gabor_filtered_images, filter_densities, image, average_color, image_height, min_y_threshold, max_y_threshold, threshold=20):
 
 
-   
-    def region_growing(self, buffered_hull, gabor_filtered_images, filter_densities, image, average_color, image_height, min_y_threshold, max_y_threshold, threshold=20):
         """
         Expand the region using Gabor filter similarity and color similarity.
-        """
-        # Explicitly check if gabor_filtered_images is a valid list of 2D arrays
-        if not isinstance(gabor_filtered_images, list) or len(gabor_filtered_images) == 0:
-            raise ValueError("Gabor-filtered images must be a non-empty list.")
-        if not isinstance(gabor_filtered_images[0], np.ndarray) or gabor_filtered_images[0].ndim != 2:
-            raise ValueError("Each Gabor-filtered image must be a 2D NumPy array.")
     
+        Parameters:
+        - buffered_hull: Initial buffered convex hull points.
+        - gabor_filtered_images: List of images filtered by Gabor kernels.
+        - filter_densities: Densities of the Gabor-filtered regions.
+        - image: The original input image (BGR format).
+        - average_color: The average color in the initial buffered region.
+        - threshold: Similarity threshold for expanding the region.
+    
+        Returns:
+        - region_mask: A mask representing the expanded region.
+        """
         height, width = gabor_filtered_images[0].shape
         region_mask = np.zeros((height, width), dtype=np.uint8)
         cv2.fillPoly(region_mask, [buffered_hull.astype(int)], 255)
     
-        # Rank filters by density
+        # Sort Gabor filters by density and select the top filters
         sorted_filters = sorted(range(len(filter_densities)), key=lambda i: filter_densities[i], reverse=False)
         best_gabor_images = [gabor_filtered_images[i] for i in sorted_filters[:5]]  # Top 5 Gabor filters
+    
+        # Initialize BFS queue and visited set
+        queue = list(zip(*np.where(region_mask == 255)))
+        visited = set(queue)
+        added_pixels = 0  # Debugging counter for added pixels
     
         # Define 8-connectivity for neighboring pixels
         directions = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
     
-        for i in range(height):
-            for j in range(width):
-                if region_mask[i, j] == 255:  # Already part of the region
-                    for direction in directions:
-                        ni, nj = i + direction[0], j + direction[1]
+        while queue:
+            y, x = queue.pop(0)  # FIFO queue for breadth-first search
     
-                        # Ensure the indices are within bounds and the pixel is not already part of the region
-                        if 0 <= ni < height and 0 <= nj < width and region_mask[ni, nj] == 0:
-                            # Check vertical constraints
-                            if min_y_threshold <= ni <= max_y_threshold:
-                                # Evaluate Gabor texture similarity
-                                gabor_similarity = np.mean([
-                                    abs(best_gabor_image[ni, nj] - best_gabor_image[i, j])
-                                    for best_gabor_image in best_gabor_images
-                                ])
+            for dy, dx in directions:
+                ny, nx = y + dy, x + dx
     
-                                # Evaluate color similarity
-                                pixel_color = image[ni, nj]
-                                color_similarity = np.linalg.norm(pixel_color - average_color)
+                # Check if within bounds and not visited
+                if 0 <= ny < height and 0 <= nx < width and (ny, nx) not in visited:
+                    # Evaluate Gabor texture similarity
+                    gabor_similarity = np.mean([
+                        abs(best_gabor_image[ny, nx] - best_gabor_image[y, x])
+                        for best_gabor_image in best_gabor_images
+                    ])
     
-                                # Combine similarities and expand region if below threshold
-                                if (gabor_similarity < threshold) and (color_similarity < threshold * 1.5):
-                                    region_mask[ni, nj] = 255
+                    # Evaluate color similarity
+                    pixel_color = image[ny, nx]
+                    color_similarity = np.linalg.norm(pixel_color - average_color)
     
+                    # Combine similarities and expand region if below threshold
+                    if (gabor_similarity < threshold) or (color_similarity < threshold * 1.3):
+                        region_mask[ny, nx] = 255
+                        queue.append((ny, nx))
+                        visited.add((ny, nx))
+                        added_pixels += 1  # Debugging counter for added pixels
+    
+        print(f"Region growing completed with {added_pixels} pixels added.")
         return region_mask
 
-        
-        
 
     
     def smooth_polygon(self, expanded_region_mask):
@@ -288,7 +301,9 @@ class FacadeEstimation:
         return len(windows_per_floor), windows_per_floor
 
     @staticmethod
+
     def calculate_and_save_statistics(output_path, bounding_boxes, expanded_region, rotated_box, image_name, location_dict):
+
         """
         Calculate and save statistics related to the facade in both text and JSON formats, including location data.
         """
@@ -419,20 +434,22 @@ class FacadeEstimation:
             json.dump(json_data, json_file, indent=4)
 
             
-    def process(self, image_folder, bbox_folder, output_folder):
+    def process(self, image_folder, bbox_folder, output_folder, location_file):
+        
         """
         Processes images and bounding boxes to estimate facades and generate results.
         """
         os.makedirs(output_folder, exist_ok=True)
-    
-        # Load Locations.txt dynamically from the input folder
-        location_file = os.path.join(image_folder, "Locations.txt")
+
+
+        # Load location data
+        location_dict = {}
         if os.path.exists(location_file):
-            locations = self.read_location_file(location_file)
+            location_dict = self.read_location_file(location_file)
         else:
-            print(f"Warning: Locations.txt not found in {image_folder}. Location data will not be included.")
-            locations = {}
-    
+            print(f"Warning: Locations.txt not found in {os.path.dirname(location_file)}. Location data will not be included.")
+
+
         # Get image files
         image_files = self.get_image_files(image_folder)
     
@@ -482,18 +499,35 @@ class FacadeEstimation:
             max_y_threshold = max(box[3] for box in bounding_boxes) + 150
     
             # Perform region growing
+
+
             try:
+
                 expanded_region_mask = self.region_growing(
-                    buffered_hull=buffered_hull,
-                    gabor_filtered_images=gabor_filtered_images,
-                    filter_densities=filter_densities,
-                    image=image,
-                    average_color=average_color,
-                    image_height=image.shape[0],
-                    min_y_threshold=min_y_threshold,
-                    max_y_threshold=max_y_threshold,
-                    threshold=20
+                buffered_hull=buffered_hull,
+                gabor_filtered_images=gabor_filtered_images,
+                filter_densities=filter_densities,
+                image=image,
+                average_color=average_color,
+                image_height=image.shape[0],
+                min_y_threshold=min_y_threshold,
+                max_y_threshold=max_y_threshold,
+                threshold=20 
                 )
+
+
+                
+              #  expanded_region_mask = self.region_growing(
+                  #  buffered_hull=buffered_hull,
+                   # gabor_filtered_images=gabor_filtered_images,
+                    #filter_densities=filter_densities,
+                    #image=image,
+                    #average_color=average_color,
+                    #image_height=image.shape[0],
+                    #min_y_threshold=min_y_threshold,
+                    #max_y_threshold=max_y_threshold,
+                    #threshold=20
+              #  )
             except ValueError as e:
                 print(f"Error during region growing: {e}")
                 continue
@@ -537,16 +571,15 @@ class FacadeEstimation:
 
 
 
-
-            # Save statistics with location data
+            # Pass the location_dict to calculate_and_save_statistics
             output_stats_path = os.path.join(output_folder, f"{os.path.splitext(image_file)[0]}_statistics.txt")
             self.calculate_and_save_statistics(
                 output_path=output_stats_path,
                 bounding_boxes=bounding_boxes,
                 expanded_region=expanded_region,
                 rotated_box=rotated_bounding_box,
-                image_name=image_file,  # Pass the current image file name
-                location_dict=locations  # Pass the dictionary containing location data
+                image_name=image_file,  # Make sure this matches the key in location_dict
+                location_dict=location_dict
             )
     
             print(f"Processing completed for {image_file}. Results saved.")

@@ -4,6 +4,8 @@ from modules.resize_images import resize_images
 from modules.classify_images import classify_images
 from modules.detect_windows import detect_windows
 from modules.facade_estimation import FacadeEstimation  # Import FacadeEstimation class
+import shutil  # Import shutil for folder deletion
+
 
 def main(input_folder):
     output_folder = "output"
@@ -11,6 +13,9 @@ def main(input_folder):
     classification_folder = os.path.join(output_folder, "classification_results")
     bounding_boxes_folder = os.path.join(output_folder, "bounding_boxes")
     facade_data_folder = os.path.join(output_folder, "facade_data")
+    location_file = os.path.join(input_folder, "Locations.txt")  # Define the path to the Locations.txt file
+
+    
 
     # Step 1: Resize images
     print("Resizing images...")
@@ -28,9 +33,16 @@ def main(input_folder):
     print("Estimating facades...")
     buffer_factor = 0.1  # Set buffer factor
     facade_estimator = FacadeEstimation(buffer_factor=buffer_factor)  # Initialize the class
-    facade_estimator.process(resized_folder, bounding_boxes_folder, facade_data_folder)  # Process facades
+   # facade_estimator.process(resized_folder, bounding_boxes_folder, facade_data_folder)  # Process facades
+    facade_estimator.process(resized_folder, bounding_boxes_folder, facade_data_folder, location_file)  # Process facades
+
 
     print(f"Pipeline complete! Output folder: {output_folder}")
+    
+        # Cleanup: Delete the resized_images folder
+    if os.path.exists(resized_folder):
+        print(f"Cleaning up")
+        shutil.rmtree(resized_folder)
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
