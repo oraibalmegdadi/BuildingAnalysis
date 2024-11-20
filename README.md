@@ -7,7 +7,7 @@
 ## Installation and Setup
 ---
 
-Ensure [Python] (https://www.python.org/) is installed and properly configured on your device. This project was developed using Python 3.9.
+Ensure [Python](https://www.python.org/) is installed and properly configured on your device. This project was developed using Python 3.9.
 
 ### Clone the Repository
 #### Windows
