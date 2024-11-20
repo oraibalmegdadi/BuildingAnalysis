@@ -1,6 +1,6 @@
 Filename,Predicted_Class,Confidence
-1.jpg,Pombaline,0.98
-3.jpg,Pombaline,1.00
+1.jpg,Century17and18,0.98
+3.jpg,Century17and18,1.00
 Unti5tled.jpg,After1950,1.00
 Untitled.jpg,After1950,1.00
 Untitled2.jpg,After1950,1.00
