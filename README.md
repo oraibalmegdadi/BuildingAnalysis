@@ -7,6 +7,8 @@
 ---
 
 ## Installation and Setup
+---
+Ensure **Python** (https://www.python.org/) is installed and properly configured on your device. This project was developed using Python 3.9.
 
 ### Clone the Repository
 
@@ -30,7 +32,6 @@ Use the following command in the Terminal:
 ```bash
 cd BuildingAnalysis
 ```
-
 
 
 ### Activate the Virtual Environment
@@ -60,6 +61,7 @@ Install the required Python libraries from the requirements.txt file:
 ```bash
 pip install -r requirements.txt
 ```
+---
 
 ### Running the Code
 After setting up the environment, you can run the pipeline as follows:
@@ -68,6 +70,10 @@ After setting up the environment, you can run the pipeline as follows:
 python BuildingAnalysis.py <input>
 ```
 Replace <input> with the directory containing your input images and the Locations.txt file.
+Images will be resized to 640*640 pixels automaticlly. for best reutls we creommend  the images to focus on a building facade where most of windows and the facade borders are clear. 
+location of each image is not mandotary. it could be added for more .... , the location represting each image could be included in  https://github.com/oraibalmegdadi/BuildingAnalysis/blob/main/input/Locations.txt   shuould be in the format: ImageName,Latitude,Longitude
+
+---
 
 ## Output
 
