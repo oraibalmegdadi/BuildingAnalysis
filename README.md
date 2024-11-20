@@ -66,8 +66,8 @@ The image showcases the key steps in the **Building Analysis Pipeline**, as foll
 
 5. **Statistics:**
    - ** Statistics:**  `.txt` and  `.json` files are generated for each image containing detailed statistics, including:
-     -Location (if provided in metadata)
-     -  Total number of windows.
+     - Location (if provided in metadata)
+     - Total number of windows.
      - Average window dimensions.
      - Floor height.
      - Window coverage percentage.
