@@ -181,7 +181,7 @@ Filename, Predicted_Class, Confidence
       * Annotated images that include:
           1. Detected windows (each floor represented with a unique color for clarity).
           2. The estimated facade area (outlined in magenta).
-          3. The bounding box of the facade.
+          3. The bounding box of the facade (outlined in Orange).
 
 ---
 
