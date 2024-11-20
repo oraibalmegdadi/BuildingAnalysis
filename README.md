@@ -65,8 +65,9 @@ The image showcases the key steps in the **Building Analysis Pipeline**, as foll
    - This grouping is based on vertical alignment and distance-based calculations to estimate floor boundaries.
 
 5. **Statistics:**
-   - ** Statistics:** A `.txt` and A `.json` files are generated containing detailed statistics, including:
-     - Total number of windows.
+   - ** Statistics:**  `.txt` and  `.json` files are generated for each image containing detailed statistics, including:
+     -Location (if provided in metadata)
+     -  Total number of windows.
      - Average window dimensions.
      - Floor height.
      - Window coverage percentage.
