@@ -10,9 +10,11 @@ class FacadeEstimation:
     def __init__(self, buffer_factor=0.1):
         self.buffer_factor = buffer_factor
 
+    
     @staticmethod
-    def get_image_files(data_folder, extension=".jpg"):
-        return [f for f in os.listdir(data_folder) if f.endswith(extension)]
+    def get_image_files(data_folder, extensions=("png", "jpg", "jpeg")):
+        return [f for f in os.listdir(data_folder) if any(f.endswith(ext) for ext in extensions)]
+
 
     @staticmethod
     def read_bounding_boxes(txt_file):
